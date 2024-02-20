@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Counter App</title>
+</head>
+<body>
+  <h1 id="counter">0</h1>
+  <button id="addBtn">Add</button>
+
+  <script>
+    // Function to log lifecycle events
+    function logLifecycleEvent(event) {
+      console.log(`Lifecycle Event: ${event}`);
+    }
+
+    // Function to update counter value and UI
+    function updateCounter(value) {
+      document.getElementById('counter').innerText = value;
+    }
+
+    // Function to handle click event on the button
+    function handleButtonClick() {
+      // Increment counter value
+      counter++;
+      // Update UI
+      updateCounter(counter);
+      // Log state change event
+      logLifecycleEvent('State Changed');
+    }
+
+    // Initialize counter
+    let counter = 0;
+
+    // Log component mount event
+    logLifecycleEvent('Component Mounted');
+
+    // Add event listener to the button
+    document.getElementById('addBtn').addEventListener('click', handleButtonClick);
+  </script>
+</body>
+</html>
